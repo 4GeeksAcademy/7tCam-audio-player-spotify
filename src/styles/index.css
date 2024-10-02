@@ -1,12 +1,333 @@
+/* Global Styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
 
-/* 
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+ul {
+    list-style: none;
+    padding: 0;
+}
 
-*/
+/* Home Component Styles */
+.home {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Sidebar Component Styles */
+.sidebar {
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1;
+    /* Asegura que el Sidebar esté detrás del PlayerControls */
+}
+
+.player-controls {
+    background-color: #000;
+    padding: 20px 0;
+    box-sizing: border-box;
+    width: calc(100% - 240px);
+    /* Asegúrate de que no se superponga con el Sidebar */
+    position: fixed;
+    bottom: 0;
+    left: 240px;
+    /* Mueve el PlayerControls para que empiece después del Sidebar */
+    z-index: 2;
+    /* Coloca el PlayerControls encima del Sidebar */
+}
+
+.sidebar .logo {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    
+}
+
+.sidebar .nav {
+    flex-grow: 1;
+}
+
+.sidebar .nav li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.sidebar .nav li:hover {
+    background-color: #00ffdd;
+}
+
+.sidebar .playlists {
+    margin-top: 20px;
+}
+
+.sidebar .playlists h3 {
+    margin-bottom: 10px;
+}
+
+.sidebar .playlists ul li {
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background 0.3s;
+    width: 6rem;
+
+}
+.logo {
+    cursor: pointer;
+}
+.tidal {
+    font-size: 2rem;
+    letter-spacing: 4px;
+    cursor: pointer;
+    
+}
+
+.sidebar .playlists ul li:hover {
+    background-color: #00ffdd;
+    width: 6rem;
+    text-align: start;
+}
+
+/* Playlist Component Styles */
+.playlist {
+    margin-left: 240px;
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #181818;
+    overflow-y: auto;
+}
+
+.playlist h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* TrackList Component Styles */
+.track-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.track-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    /* Ajusta el padding para mayor separación vertical */
+    border-bottom: 1px solid #333;
+    align-items: center;
+    margin-bottom: 15px;
+    /* Añade margen inferior para más espacio entre elementos */
+}
+
+.track-list .track-title,
+.track-list .track-artist,
+.track-list .track-album,
+.track-list .track-duration {
+    flex: 1;
+    text-align: left;
+}
+
+.track-list .track-duration {
+    text-align: right;
+    flex: 0.5;
+}
+
+.track-list li:hover {
+    background-color: #282828;
+}
+
+/* PlayerControls Component Styles */
+.player-controls {
+    position: fixed;
+    bottom: 0;
+    left: 240px;
+    right: 0;
+    background-color: #282828;
+    color: #00ffdd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    border-top: 1px solid #333;
+}
+
+.player-controls button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.player-controls button:hover {
+    color: #be2bb2;
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    padding: 20px 0;
+    /* Aumenta el padding para dar más espacio alrededor */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    /* Aumenta el gap para mayor separación entre los iconos */
+    margin-bottom: 20px;
+    /* Añade un margen inferior para separar los controles de la barra de progreso */
+}
+
+.icon {
+    color: #00ffdd;
+    font-size: 1.2rem;
+    /* Reduce el tamaño de la fuente para que los íconos se vean más delgados */
+    cursor: pointer;
+    font-weight: 100;
+    /* Intenta con un peso de fuente más ligero si es compatible */
+}
+
+.play-pause {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.play-pause {
+    background-color: #fff;
+    color: #000;
+    border-radius: 50%;
+    padding: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 30px;
+    /* Añade espacio lateral para separar los tiempos del borde */
+    gap: 20px;
+    /* Aumenta el gap entre el tiempo y la barra de progreso */
+    background-color: transparent;
+}
+
+.time {
+    color: #00ffdd;
+    font-size: 0.9rem;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 5px;
+    background-color: #333333 !important;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-filled {
+    width: 40%;
+    /* Cambia este valor para simular la posición del progreso */
+    height: 100%;
+    background-color: #00ffdd !important;
+    /* Mantén el color morado */
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+.time {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 5px;
+    background-color: #444;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-filled {
+    width: 40%;
+    /* Cambia este valor para simular la posición del progreso */
+    height: 100%;
+    background-color: #be2bb2;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.playlist {
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #181818;
+    color: #fff;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.playlist-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.playlist-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.no-selection {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+}
